@@ -100,8 +100,10 @@ Refer to the codebook to learn about the details of the new dataset
 Code used for generating codebook
 
 if clean is the new dataset
-dd<-data.frame(variableName=colnames(clean),datatype=sapply(clean,class),range = sapply(clean,function(gg){	
-		if(class(gg)=="numeric"){
+dd<-data.frame(variableName=colnames(clean),datatype=sapply(clean,class),range = sapply(clean,function(gg)
+	{	
+		if(class(gg)=="numeric")
+		{
 			paste0(min(gg)," to ", max(gg))
 		}
 	
