@@ -97,3 +97,18 @@ There are four subtasks performed by the scipt-
 4) Appropriately labels the data set with descriptive variable names and writes the data to a text file called "mergedData.txt" that        would appear in the current working directory of your PC
 
 Refer to the codebook to learn about the details of the new dataset
+Code used for generating codebook
+
+if clean is the new dataset
+dd<-data.frame(variableName=colnames(clean),datatype=sapply(clean,class),range = sapply(clean,function(gg){	
+		if(class(gg)=="numeric"){
+			paste0(min(gg)," to ", max(gg))
+		}
+	
+		else {
+			paste(levels(gg), collapse='',sep=",")
+		}  
+		       
+ 	}
+))
+	write.table(dd,"cod.md",row.names=F,sep='		
